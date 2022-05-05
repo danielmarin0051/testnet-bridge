@@ -69,13 +69,13 @@ describe("Oracle", function () {
             });
         });
 
-        oracle.listen();
+        await oracle.listen();
 
         await providerSrc.send("evm_mine", []);
 
         await promise;
 
-        oracle.stopListening();
+        await oracle.stopListening();
     });
     it("works for multiple updates", async function () {
         const blockMiningTimeInMs = POLLING_INTERVAL_SRC_IN_MS * 2;
@@ -105,7 +105,7 @@ describe("Oracle", function () {
             numberOfUpdates += 1;
         });
 
-        oracle.listen();
+        await oracle.listen();
 
         for (let i = 0; i < blockUpdateInterval * blockUpdateEpochs; i++) {
             await providerSrc.send("evm_mine", []);
@@ -115,7 +115,7 @@ describe("Oracle", function () {
         expect(numberOfUpdates).to.be.equal(blockUpdateEpochs);
 
         // remove listeners
-        oracle.stopListening();
+        await oracle.stopListening();
         EndpointDst.removeAllListeners();
     });
 });

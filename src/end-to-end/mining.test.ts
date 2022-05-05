@@ -91,7 +91,7 @@ describe("e2e", function () {
         await providerSrc.send("evm_setIntervalMining", [MINING_INTERVAL]);
 
         // oracle / relayer start listening
-        oracle.listen();
+        await oracle.listen();
         await relayer.listen();
 
         // send multiple messages
@@ -128,7 +128,7 @@ describe("e2e", function () {
         }
 
         // cleanup
-        oracle.stopListening();
+        await oracle.stopListening();
         await relayer.stopListening();
         await providerSrc.send("evm_setIntervalMining", [0]);
         await providerSrc.send("evm_setIntervalMining", [0]);

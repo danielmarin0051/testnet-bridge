@@ -140,7 +140,7 @@ describe("e2e", function () {
             oracleUpdateBlockInterval: blockUpdateInterval,
         });
 
-        oracle.listen();
+        await oracle.listen();
         await relayer.listen();
 
         for (let i = 0; i < blockUpdateEpochs; i++) {
@@ -153,7 +153,7 @@ describe("e2e", function () {
         expect((await Receiver.numMessages()).toNumber()).to.equal(blockUpdateEpochs);
 
         // remove listeners
-        oracle.stopListening();
-        relayer.stopListening();
+        await oracle.stopListening();
+        await relayer.stopListening();
     });
 });
