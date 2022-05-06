@@ -1,0 +1,1 @@
+worker: yarn ts-node src/serve/main.ts
