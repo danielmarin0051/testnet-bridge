@@ -1,1 +1,1 @@
-worker: yarn run start:server
+worker: yarn build && yarn run start:server
