@@ -10,9 +10,8 @@ export type OracleConfig = {
     pollingIntervalDstInMs: number;
     endpointAddressSrc: string;
     endpointAddressDst: string;
-    ethPrivateKey: string;
-    // oracle
     nexusOracleAddressDst: string;
+    ethPrivateKey: string;
     oracleUpdateBlockInterval: number;
 };
 
@@ -58,8 +57,7 @@ export class Oracle {
                     [await this.EndpointSrc.chainId(), srcBlockNumber, root]
                 ),
             ]);
-            // const tx = await this.NexusOracleDst.execute(this.EndpointDst.address, calldata);
-            // await tx.wait();
+
             const populatedTx = await this.NexusOracleDst.populateTransaction.execute(
                 this.EndpointDst.address,
                 calldata
