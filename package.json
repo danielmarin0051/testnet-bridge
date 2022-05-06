@@ -8,7 +8,8 @@
     "test": "mocha 'src/**/*.test.ts'",
     "test:single": "mocha",
     "chainA": "yarn hardhat node --port 8545",
-    "chainB": "yarn hardhat node --port 8546"
+    "chainB": "yarn hardhat node --port 8546",
+    "start:server": "yarn ts-node src/serve/main.ts"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",

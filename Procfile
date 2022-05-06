@@ -1,1 +1,1 @@
-worker: yarn ts-node src/serve/main.ts
+worker: yarn run start:server
