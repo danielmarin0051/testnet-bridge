@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Daniel Marin",
   "license": "MIT",
+  "engines": {
+    "node": "16.14",
+    "yarn": "1.22"
+  },
   "scripts": {
     "test": "mocha 'src/**/*.test.ts'",
     "test:single": "mocha",
